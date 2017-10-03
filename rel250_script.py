@@ -34,10 +34,10 @@ def scraper():
 					if flag == True:
 						p_text = td.find_all('p')
 						for p in p_text:
-							if p.a is not None:
-								file.write(p.a['href'].encode('utf-8', 'replace') + "|")
-							else:
-								file.write(p.text.encode('utf-8', 'replace') + "|")
+							file.write(p.text.encode('utf-8', 'replace') + "|")
+							#if p.a is not None:
+								#file.write(p.a['href'].encode('utf-8', 'replace') + "|")
+								
 						
 			file.write("\n")
 
