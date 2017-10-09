@@ -14,8 +14,10 @@ def scraper():
 	login_html = lxml.html.fromstring(login.text)
 	hidden_inputs = login_html.xpath(r'//form//input[@type="hidden"]')
 	form = {x.attrib["name"]: x.attrib["value"] for x in hidden_inputs}
-	form['pseudonym_session[unique_id]'] = "jwoff25"
-	form['pseudonym_session[password]'] = "Majidelife25"
+	user_id = raw_input("Enter username: ")
+	pswd = raw_input("Enter password: ")
+	form['pseudonym_session[unique_id]'] = user_id
+	form['pseudonym_session[password]'] = pswd
 	response = s.post(URL, form)
 
     #webbrowser.open(response.url)
